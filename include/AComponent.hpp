@@ -10,13 +10,14 @@
 
 	#include <functional>
 	#include <vector>
+	#include <map>
 	#include "IComponent.hpp"
 
 	namespace nts {
 
 		class AComponent : public nts::IComponent {
 			public:
-				AComponent(const std::string &name);
+				AComponent(const std::string &name, std::size_t pins = 1);
 				virtual ~AComponent();
 
 				void setLink(size_t pin, IComponent &other, size_t otherpin) override final;
@@ -28,7 +29,8 @@
 
 			protected:
 				std::string _Name;
-				std::vector<std::function<nts::Tristate(void)>> _PinLink;
+				std::size_t _NbPin;
+				std::map<std::size_t, std::function<nts::Tristate(void)>> _PinLink;
 		};
 
 	}

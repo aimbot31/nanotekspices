@@ -10,9 +10,7 @@
 Input::Input(const std::string &name) :
 nts::AComponent(name),
 _Value(nts::Tristate::UNDEFINED)
-{
-    _PinLink.resize(1);
-}
+{}
 
 nts::Tristate Input::compute(size_t pin)
 {

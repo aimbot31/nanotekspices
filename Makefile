@@ -12,6 +12,7 @@ PATH_SRCS	=	./src/
 FILES		=	AComponent.cpp	\
                 Input.cpp		\
                 Gates.cpp		\
+				Output.cpp		\
 
 SRCS		=	$(addprefix $(PATH_SRCS), $(FILES))	\
 
@@ -30,6 +31,7 @@ PATH_TEST	=	./tests/
 
 FILES_TEST	=	test_Input.cpp		\
 				test_Gates.cpp		\
+				test_Output.cpp		\
 
 SRCS_TESTS	=	$(addprefix $(PATH_TEST), $(FILES_TEST))	\
 
