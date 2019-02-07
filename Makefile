@@ -9,11 +9,12 @@ NAME		=	./nanotekspice
 
 PATH_SRCS	=	./src/
 
-FILES		=	AComponent.cpp	\
-            	Input.cpp		\
-                Gates.cpp		\
-				Output.cpp		\
-				Circuit.cpp		\
+FILES		=	AComponent.cpp				\
+            	Input.cpp					\
+                Gates.cpp					\
+				Output.cpp					\
+				Circuit.cpp					\
+				chipsets/Chipset4001.cpp	\
 
 SRCS		=	$(addprefix $(PATH_SRCS), $(FILES))	\
 
@@ -30,10 +31,11 @@ NAME_QUICK_TEST	=	quicktu
 
 PATH_TEST	=	./tests/
 
-FILES_TEST	=	test_Input.cpp		\
-				test_Gates.cpp		\
-				test_Output.cpp		\
-				test_Circuit.cpp	\
+FILES_TEST	=	test_Input.cpp					\
+				test_Gates.cpp					\
+				test_Output.cpp					\
+				test_Circuit.cpp				\
+				chipsets/test_Chipset4001.cpp	\
 
 SRCS_TESTS	=	$(addprefix $(PATH_TEST), $(FILES_TEST))	\
 

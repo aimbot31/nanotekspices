@@ -12,12 +12,14 @@ Circuit::Circuit(const std::string &name) :
 nts::AComponent(name)
 {}
 
+void Circuit::dumpFromMap(const std::map<std::string, std::unique_ptr<nts::IComponent>>::value_type &elem)
+{
+	elem.second->dump();
+}
+
 void Circuit::dump(void) const
 {
-	std::for_each(_Components.cbegin(), _Components.cend(),
-	[](const std::map<std::string, std::unique_ptr<nts::IComponent>>::value_type &elem)->void  {
-		elem.second->dump();
-	});
+	std::for_each(_Components.cbegin(), _Components.cend(), this->dumpFromMap);
 }
 
 void Circuit::addComponent(std::unique_ptr<nts::IComponent> &NewComponent, ComponentType type)

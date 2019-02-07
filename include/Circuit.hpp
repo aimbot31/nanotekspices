@@ -33,6 +33,7 @@ class Circuit : public nts::AComponent {
 	protected:
 		std::map<std::string, std::unique_ptr<nts::IComponent>> _Components;
 		void addPin(nts::IComponent *newOutput, ComponentType type) noexcept;
+		static void dumpFromMap(const std::map<std::string, std::unique_ptr<nts::IComponent>>::value_type &elem);
 };
 
 #endif /* !CIRCUIT_HPP_ */
