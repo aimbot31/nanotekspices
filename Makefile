@@ -11,6 +11,7 @@ PATH_SRCS	=	./src/
 
 FILES		=	AComponent.cpp	\
                 Input.cpp		\
+                Gates.cpp		\
 
 SRCS		=	$(addprefix $(PATH_SRCS), $(FILES))	\
 
@@ -28,6 +29,7 @@ NAME_QUICK_TEST	=	quicktu
 PATH_TEST	=	./tests/
 
 FILES_TEST	=	test_Input.cpp		\
+				test_Gates.cpp		\
 
 SRCS_TESTS	=	$(addprefix $(PATH_TEST), $(FILES_TEST))	\
 
