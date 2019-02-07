@@ -10,9 +10,10 @@ NAME		=	./nanotekspice
 PATH_SRCS	=	./src/
 
 FILES		=	AComponent.cpp	\
-                Input.cpp		\
+            	Input.cpp		\
                 Gates.cpp		\
 				Output.cpp		\
+				Circuit.cpp		\
 
 SRCS		=	$(addprefix $(PATH_SRCS), $(FILES))	\
 
@@ -32,6 +33,7 @@ PATH_TEST	=	./tests/
 FILES_TEST	=	test_Input.cpp		\
 				test_Gates.cpp		\
 				test_Output.cpp		\
+				test_Circuit.cpp	\
 
 SRCS_TESTS	=	$(addprefix $(PATH_TEST), $(FILES_TEST))	\
 
