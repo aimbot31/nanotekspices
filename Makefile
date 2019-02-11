@@ -56,6 +56,12 @@ CXXFLAGS	=	-W -Wall -Wextra -std=c++11 $(HEADER)
 
 CXX			=	g++
 
+# --------------- MAINTENABILITY ------------------
+
+DOXYGEN_FILE	=	./Doxyfile
+
+DOCFOLDER	=	./docs/
+
 # ------------------ MANDATORY ------------
 
 all: $(NAME)
@@ -70,7 +76,7 @@ tests_run:
 clean:
 	rm --force $(OBJS) $(OBJS_TEST) *.gc* vgcore.*
 
-fclean: clean
+fclean: clean cleanDocs
 	rm --force $(NAME) $(NAME_TEST) $(NAME_DEBUG) $(NAME_QUICK_TEST) $(NAME_DEBUG_TEST) a.out
 
 re: fclean $(NAME)
@@ -91,3 +97,17 @@ $(NAME_QUICK_TEST): $(OBJS_TEST)
 
 run$(NAME_QUICK_TEST): $(NAME_QUICK_TEST)
 	./$(NAME_QUICK_TEST) --always-succeed --verbose -S --full-stats -j4 --filter="*$T" --timeout=180
+
+# ---------------- MANDATORY ---------------
+
+getCoverage: tests_run
+	gcovr -e include -e tests -p && gcovr -e include -e tests -b -p
+
+$(DOCFOLDER):
+	mkdir $(DOCFOLDER)
+
+createDocs:	$(DOCFOLDER)
+	doxygen $(DOXYGEN_FILE)
+
+cleanDocs:
+	rm -rf ./docs/

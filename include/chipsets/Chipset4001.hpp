@@ -12,16 +12,27 @@
     #include <functional>
     #include "AComponent.hpp"
 
-class Chipset4001 : public nts::AComponent {
-	public:
-		Chipset4001(const std::string &name);
-		~Chipset4001() override;
+    /**
+    * \namespace nts
+    * \brief Namespace for Component
+    */
+	namespace nts {
 
-		nts::Tristate compute(std::size_t pin = 1);
+		/**
+		* \class Chipset4001
+		* \brief Chipset of type 4001
+		*/
+		class Chipset4001 : public nts::AComponent {
+			public:
+				Chipset4001(const std::string &name);
+				~Chipset4001() override;
 
-	protected:
-		nts::Tristate operation(std::size_t pin1, std::size_t pin2);
-		static constexpr std::size_t _numberOfPin = 13;
-};
+				nts::Tristate compute(std::size_t pin = 1);
+
+			protected:
+				nts::Tristate operation(std::size_t pin1, std::size_t pin2);
+				static constexpr std::size_t _numberOfPin = 13;
+		};
+	}
 
 #endif /* !CHIPSET4001_HPP_ */

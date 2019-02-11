@@ -11,6 +11,8 @@
 #include "Input.hpp"
 #include "Output.hpp"
 
+using namespace nts;
+
 TestSuite(Circuit,
 .init = cr_redirect_stdout,
 .fini = NULL,

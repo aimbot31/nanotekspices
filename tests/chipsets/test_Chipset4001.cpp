@@ -11,6 +11,8 @@
 #include "Input.hpp"
 #include "Output.hpp"
 
+using namespace nts;
+
 TestSuite(Chipset4001,
 .init = NULL,
 .fini = NULL,

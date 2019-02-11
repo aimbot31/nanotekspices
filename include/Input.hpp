@@ -10,20 +10,31 @@
 
     #include "AComponent.hpp"
 
-class Input : public nts::AComponent {
-	public:
-		Input(const std::string &name);
-		~Input();
+    /**
+    * \namespace nts
+    * \brief Namespace for Component
+    */
+    namespace nts {
 
-        // Mandatory
-        nts::Tristate compute(std::size_t pin = 1) override;
+        /**
+        * \class Input
+        * \brief Component that represent a default Input
+        */
+        class Input : public nts::AComponent {
+            public:
+                Input(const std::string &name);
+                ~Input();
 
-        // Setters
-        void setInputValue(nts::Tristate defaultValue) noexcept;
+                // Mandatory
+                nts::Tristate compute(std::size_t pin = 1) override;
 
-	protected:
-	private:
-        nts::Tristate _Value;
-};
+                // Setters
+                void setInputValue(nts::Tristate defaultValue) noexcept;
+
+            protected:
+            private:
+                nts::Tristate _Value; /*!< Default value to return */
+        };
+    };
 
 #endif /* !INPUT_HPP_ */

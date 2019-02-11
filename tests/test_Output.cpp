@@ -10,6 +10,8 @@
 #include "Output.hpp"
 #include "Input.hpp"
 
+using namespace nts;
+
 TestSuite(Output,
 .init = cr_redirect_stdout,
 .fini = NULL,

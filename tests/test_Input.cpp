@@ -9,6 +9,8 @@
 #include <criterion/redirect.h>
 #include "Input.hpp"
 
+using namespace nts;
+
 TestSuite(Input,
 .init = NULL,
 .fini = NULL,

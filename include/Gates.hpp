@@ -11,7 +11,16 @@
     #include <functional>
     #include "IComponent.hpp"
 
+    /**
+    * \namespace nts
+    * \brief Namespace for Component
+    */
     namespace nts {
+
+        /**
+        * \class Gates
+        * \brief Class with all the Basic Gates
+        */
         class Gates {
             public:
                 virtual ~Gates() = default;

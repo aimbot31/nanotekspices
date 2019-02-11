@@ -10,14 +10,26 @@
 
 	#include <iostream>
 
+    /**
+    * \namespace nts
+    * \brief Namespace for Component
+    */
 	namespace nts {
 
+		/**
+		* \enum Tristate
+		* \brief Define the three State possible
+		*/
 		enum Tristate {
 			UNDEFINED = (-true),
 			TRUE = true,
 			FALSE = false
 		};
 
+		/**
+		* \class IComponent
+		* \brief Interface for Component
+		*/
 		class IComponent {
 			public:
 				virtual ~IComponent() = default;
