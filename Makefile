@@ -15,6 +15,7 @@ FILES		=	AComponent.cpp				\
 				Output.cpp					\
 				Circuit.cpp					\
 				chipsets/Chipset4001.cpp	\
+				chipsets/Chipset4011.cpp	\
 
 SRCS		=	$(addprefix $(PATH_SRCS), $(FILES))	\
 
@@ -36,6 +37,7 @@ FILES_TEST	=	test_Input.cpp					\
 				test_Output.cpp					\
 				test_Circuit.cpp				\
 				chipsets/test_Chipset4001.cpp	\
+				chipsets/test_Chipset4011.cpp	\
 
 SRCS_TESTS	=	$(addprefix $(PATH_TEST), $(FILES_TEST))	\
 

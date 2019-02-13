@@ -2,36 +2,36 @@
 ** EPITECH PROJECT, 2017
 ** Test_criterion
 ** File description:
-** Test de Chipset4001
+** Test de Chipset4011
 */
 
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
-#include "Chipset4001.hpp"
+#include "Chipset4011.hpp"
 #include "Input.hpp"
 #include "Output.hpp"
 
 using namespace nts;
 
-TestSuite(Chipset4001,
+TestSuite(Chipset4011,
 .init = NULL,
 .fini = NULL,
 .signal = 0,
 .exit_code = 0,
 .disabled = 0,
-.description = "Test the function: Chipset4001",
+.description = "Test the function: Chipset4011",
 .timeout = 0);
 
-Test(Chipset4001, computeWrongPin)
+Test(Chipset4011, computeWrongPin)
 {
-    Chipset4001 toto("a0");
+    Chipset4011 toto("a0");
 
     cr_assert_any_throw(toto.compute());
 }
 
-Test(Chipset4001, computeFirstGate)
+Test(Chipset4011, computeFirstGate)
 {
-    Chipset4001 toto("a0");
+    Chipset4011 toto("a0");
     Input a1("a1");
     Input a2("a2");
 
@@ -42,9 +42,9 @@ Test(Chipset4001, computeFirstGate)
     cr_assert_eq(toto.compute(3), nts::Tristate::UNDEFINED);
 }
 
-Test(Chipset4001, computeSecondGate)
+Test(Chipset4011, computeSecondGate)
 {
-    Chipset4001 toto("a0");
+    Chipset4011 toto("a0");
     Input a1("a1");
     Input a2("a2");
 
@@ -55,9 +55,9 @@ Test(Chipset4001, computeSecondGate)
     cr_assert_eq(toto.compute(4), nts::Tristate::UNDEFINED);
 }
 
-Test(Chipset4001, computeThirdGate)
+Test(Chipset4011, computeThirdGate)
 {
-    Chipset4001 toto("a0");
+    Chipset4011 toto("a0");
     Input a1("a1");
     Input a2("a2");
 
@@ -69,9 +69,9 @@ Test(Chipset4001, computeThirdGate)
     cr_assert_eq(toto.compute(10), nts::Tristate::UNDEFINED);
 }
 
-Test(Chipset4001, computeFourthGate)
+Test(Chipset4011, computeFourthGate)
 {
-    Chipset4001 toto("a0");
+    Chipset4011 toto("a0");
     Input a1("a1");
     Input a2("a2");
 
@@ -79,8 +79,8 @@ Test(Chipset4001, computeFourthGate)
     toto.setLink(12, a1, 1);
     cr_assert_any_throw(toto.compute(11));
     toto.setLink(13, a2, 1);
-    a1.setInputValue(nts::Tristate::FALSE);
-    a2.setInputValue(nts::Tristate::FALSE);
+    a1.setInputValue(nts::Tristate::TRUE);
+    a2.setInputValue(nts::Tristate::TRUE);
     toto.compute(11);
     cr_assert_eq(toto.compute(11), nts::Tristate::TRUE);
 }
