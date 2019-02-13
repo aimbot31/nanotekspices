@@ -72,7 +72,7 @@ void Circuit::addPin(nts::IComponent *NewOutput, ComponentType type) noexcept
 
 /**
 * \brief get the state of the pin in function of the input pin corresponding
-* \param[in] std::size_t pin the pin of the Component that we want the state
+* \param[in] pin the pin of the Component that we want the state
 * \return nts::Tristate State of the pin
 */
 nts::Tristate Circuit::compute(std::size_t pin)

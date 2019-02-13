@@ -76,7 +76,7 @@ tests_run:
 clean:
 	rm --force $(OBJS) $(OBJS_TEST) *.gc* vgcore.*
 
-fclean: clean cleanDocs
+fclean: clean clean_docs
 	rm --force $(NAME) $(NAME_TEST) $(NAME_DEBUG) $(NAME_QUICK_TEST) $(NAME_DEBUG_TEST) a.out
 
 re: fclean $(NAME)
@@ -86,7 +86,7 @@ re: fclean $(NAME)
 $(NAME_DEBUG):
 	$(CXX) -g3 -o $(NAME_DEBUG) $(SRC_MAIN) $(HEADER) $(SRCS)
 
-debugCriterion:
+debug_criterion:
 	$(CXX) -o $(NAME_DEBUG_TEST) $(SRCS_TESTS) $(SRCS) $(CXXFLAGS) -lcriterion --coverage -g3
 	$(NAME_DEBUG_TEST) --always-succeed --verbose --debug=gdb --filter="$T"
 
@@ -100,14 +100,14 @@ run$(NAME_QUICK_TEST): $(NAME_QUICK_TEST)
 
 # ---------------- MANDATORY ---------------
 
-getCoverage: tests_run
+get_coverage: tests_run
 	gcovr -e include -e tests -p && gcovr -e include -e tests -b -p
 
 $(DOCFOLDER):
 	mkdir $(DOCFOLDER)
 
-createDocs:	$(DOCFOLDER)
+create_docs:	$(DOCFOLDER)
 	doxygen $(DOXYGEN_FILE)
 
-cleanDocs:
+clean_docs:
 	rm -rf ./docs/
