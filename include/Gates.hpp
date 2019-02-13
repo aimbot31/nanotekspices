@@ -28,6 +28,7 @@
                 static nts::Tristate And(nts::Tristate input1, nts::Tristate input2);
                 static nts::Tristate Not(nts::Tristate input);
                 static nts::Tristate Nor(nts::Tristate input1, nts::Tristate input2);
+                static nts::Tristate Xor(nts::Tristate input1, nts::Tristate input2);
                 static nts::Tristate Nand(nts::Tristate input1, nts::Tristate input2);
         };
     }

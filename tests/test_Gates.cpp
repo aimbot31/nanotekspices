@@ -62,4 +62,11 @@ Test(Gates, Nand)
     cr_assert_eq(Gates::Nand(Tristate::TRUE, Tristate::TRUE), Tristate::FALSE);
 }
 
+Test(Gates, Xor)
+{
+    cr_assert_eq(Gates::Xor(Tristate::FALSE, Tristate::FALSE), Tristate::FALSE);
+    cr_assert_eq(Gates::Xor(Tristate::TRUE, Tristate::FALSE), Tristate::TRUE);
+    cr_assert_eq(Gates::Xor(Tristate::FALSE, Tristate::TRUE), Tristate::TRUE);
+    cr_assert_eq(Gates::Xor(Tristate::TRUE, Tristate::TRUE), Tristate::FALSE);
+}
 

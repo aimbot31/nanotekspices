@@ -97,6 +97,25 @@ nts::Tristate nts::Gates::Nor(nts::Tristate input1, nts::Tristate input2)
 }
 
 /**
+* \brief Or function simulete a Xor Gate
+* Table de vérité de Xor
+* a     b   a Xor b
+* -----------------
+* 0 	0       0
+* 0 	1       1
+* 1 	0       1
+* 1 	1       0
+* \param[in] input1 is the First state
+* \param[in] input2 is the Second state
+* \return nts::Tristate Return the state of the gate in function of his input
+*/
+nts::Tristate nts::Gates::Xor(nts::Tristate input1, nts::Tristate input2)
+{
+    return nts::Gates::And(nts::Gates::Nand(input1, input2),
+                            nts::Gates::Or(input1, input2));
+}
+
+/**
 * \brief Or function simulete a Nand Gate
 * Table de vérité de Nand
 * a     b   a Nand b
