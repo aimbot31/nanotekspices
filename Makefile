@@ -9,9 +9,10 @@ NAME		=	./nanotekspice
 
 PATH_SRCS	=	./src/
 
-FILES		=	
+FILES		=	parser/checkArgs.cpp		\
+				exceptions/Exceptions.cpp
 
-SRCS		=	$(addprefix $(PATH_SRCS), $(FILES_NAMES))	\
+SRCS		=	$(addprefix $(PATH_SRCS), $(FILES))	\
 
 SRC_MAIN	=	./src/main.cpp	\
 

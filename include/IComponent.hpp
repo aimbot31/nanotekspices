@@ -14,7 +14,7 @@
 
 		enum Tristate {
 			UNDEFINED = (-true),
-			TRUE = true ,
+			TRUE = true,
 			FALSE = false
 		};
 
