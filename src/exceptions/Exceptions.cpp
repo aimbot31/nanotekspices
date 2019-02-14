@@ -7,7 +7,7 @@
 
 #include "exceptions/Exceptions.hpp"
 
-nts::NtsError::NtsError(const std::string &msg, const std::string &component) : _component(component), _msg(msg)
+nts::NtsError::NtsError(const std::string &msg, const std::string &component) : _msg(component), _component(msg)
 {
 }
 
