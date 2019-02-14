@@ -46,9 +46,9 @@ nts::Tristate Chipset4069::compute(std::size_t pin)
 		case 2:     return operation(pin - 2);
 		case 4:     return operation(pin - 2);
 		case 6:     return operation(pin - 2);
-		case 8:		return operation(pin - 2);
-		case 10:    return operation(pin - 2);
-		case 12:    return operation(pin - 2);
+		case 8:		return operation(pin);
+		case 10:    return operation(pin);
+		case 12:    return operation(pin);
 		default:	throw std::exception(); // Invalid Pin ask
 	}
 }
