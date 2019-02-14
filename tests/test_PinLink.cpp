@@ -21,7 +21,7 @@ TestSuite(PinLink,
 .description = "Test the function: PinLink",
 .timeout = 0);
 
-Test(PinLink, Entry_NULL)
+Test(PinLink, LinkCorrectly)
 {
     Input a1("a1");
 
@@ -29,3 +29,8 @@ Test(PinLink, Entry_NULL)
     cr_assert_eq(toto(), nts::Tristate::UNDEFINED);
 }
 
+Test(PinLink, BoolComparaison)
+{
+    PinLink toto();
+    cr_assert_eq(toto, false);
+}
