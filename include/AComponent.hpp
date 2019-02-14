@@ -12,6 +12,7 @@
 	#include <vector>
 	#include <map>
 	#include "IComponent.hpp"
+	#include "PinLink.hpp"
 
     /**
     * \namespace nts
@@ -67,7 +68,7 @@
 			protected:
 				std::string _Name;
 				std::size_t _NbPin;
-				std::map<std::size_t, std::function<nts::Tristate(void)>> _PinLink;
+				std::map<std::size_t, PinLink> _PinLink;
 		};
 	}
 

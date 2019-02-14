@@ -37,9 +37,7 @@ void nts::AComponent::setLink(std::size_t pin, nts::IComponent &other, std::size
     pin -= 1;
     if (_PinLink[pin])
         throw std::exception(); // Already ask Pin
-    _PinLink[pin] = [&other, otherPin](void)->nts::Tristate {
-        return other.compute(otherPin);
-    };
+    _PinLink[pin] = PinLink(&other, otherPin);
 }
 
 /**
