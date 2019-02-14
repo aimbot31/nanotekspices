@@ -25,8 +25,22 @@ TestSuite(Chipset4008,
 Test(Chipset4008, computeWrongPin)
 {
     Chipset4008 toto("a0");
+    Input a1("a1");
+    Input a2("a1");
+    Input a3("a1");
+    Input a4("a1");
+    Input a5("a1");
 
     cr_assert_any_throw(toto.compute());
+    cr_assert_any_throw(toto.compute(10));
+    toto.setLink(6, a1, 1);
+    cr_assert_any_throw(toto.compute(10));
+    toto.setLink(7, a2, 1);
+    cr_assert_any_throw(toto.compute(10));
+    toto.setLink(9, a3, 1);
+    cr_assert_any_throw(toto.compute(10));
+    toto.setLink(4, a4, 1);
+    cr_assert_any_throw(toto.compute(10));
 }
 
 

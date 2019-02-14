@@ -61,7 +61,7 @@ nts::Tristate Chipset4008::firstOperation(std::size_t pin1, std::size_t pin2, st
 	if (!_PinLink[pin2])
 		throw std::exception(); // Not Linked Pin2
 	if (!_PinLink[pin3])
-		throw std::exception(); // Not Linked Pin2
+		throw std::exception(); // Not Linked Pin3
 	nts::Tristate input[3] = {_PinLink[pin1](), _PinLink[pin2](), _PinLink[pin3]()};
 	return this->sum(input[0], input[1], input[2]);
 }
@@ -84,7 +84,8 @@ void Chipset4008::operation(void)
 */
 nts::Tristate Chipset4008::compute(std::size_t pin)
 {
-	this->operation();
+	if (pin > 9 && pin < 15)
+		this->operation();
 	switch (pin) {
 		case 10: return _Output1;
 		case 11: return _Output2;
