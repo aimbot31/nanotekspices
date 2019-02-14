@@ -2,11 +2,11 @@
 ** EPITECH PROJECT, 2019
 ** nanotekspices
 ** File description:
-** Chipset4030
+** Chipset4069
 */
 
-#ifndef CHIPSET4030_HPP_
-	#define CHIPSET4030_HPP_
+#ifndef CHIPSET4069_HPP_
+	#define CHIPSET4069_HPP_
 
     #include <iostream>
     #include <functional>
@@ -19,20 +19,20 @@
 	namespace nts {
 
 		/**
-		* \class Chipset4030
-		* \brief Chipset of type 4030
+		* \class Chipset4069
+		* \brief Chipset of type 4069
 		*/
-		class Chipset4030 : public nts::AComponent {
+		class Chipset4069 : public nts::AComponent {
 			public:
-				Chipset4030(const std::string &name);
-				~Chipset4030() override;
+				Chipset4069(const std::string &name);
+				~Chipset4069() override;
 
 				nts::Tristate compute(std::size_t pin = 1);
 
 			protected:
-				nts::Tristate operation(std::size_t pin1, std::size_t pin2);
+				nts::Tristate operation(std::size_t pin1);
 				static constexpr std::size_t _numberOfPin = 14;
 		};
 	}
 
-#endif /* !CHIPSET4030_HPP_ */
+#endif /* !CHIPSET4069_HPP_ */
