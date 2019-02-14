@@ -13,15 +13,16 @@
 	#include <string>
 	#include <iostream>
 	#include <regex>
+	#include <map>
+	#include <unordered_map>
 
 	class GestFile {
 		public:
 			GestFile(char *str);
 			~GestFile();
-			void GetObjects();
+			bool GetStatus() const;
+			std::unordered_map<int, std::map<std::string, std::string>> GetObjects();
 		private:
-			void GetLinks();
-			void GetChipsets();
 			std::string _filename;
 			bool _state;
 			std::ifstream _file;
