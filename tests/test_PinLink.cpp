@@ -31,6 +31,9 @@ Test(PinLink, LinkCorrectly)
 
 Test(PinLink, BoolComparaison)
 {
-    PinLink toto();
-    cr_assert_eq(toto, false);
+    PinLink toto;
+    if (toto)
+        cr_assert(1);
+    cr_assert(0);
+    cr_assert_any_throw(toto());
 }

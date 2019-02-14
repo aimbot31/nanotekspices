@@ -46,7 +46,7 @@
                 /**
                 * \brief Check if the Pin is Link
                 */                
-                operator bool(void) const;
+                explicit operator bool(void) const;
 
             protected:
                 nts::IComponent *_Component;/*!< Ref to the component linked */
