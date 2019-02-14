@@ -12,6 +12,20 @@
                 "runOn": "folderOpen",
                 "reevaluateOnRerun": true
             }
+        },
+        {
+            "label": "Makefile",
+            "type": "shell",
+            "command": "make ${input:command}",
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "command",
+            "type": "promptString",
+            "description": "make command",
+            "default": "all",
         }
     ]
 }

@@ -16,6 +16,7 @@ FILES		=	AComponent.cpp				\
 				Circuit.cpp					\
 				chipsets/Chipset4001.cpp	\
 				chipsets/Chipset4011.cpp	\
+				chipsets/Chipset4008.cpp	\
 
 SRCS		=	$(addprefix $(PATH_SRCS), $(FILES))	\
 
@@ -38,6 +39,7 @@ FILES_TEST	=	test_Input.cpp					\
 				test_Circuit.cpp				\
 				chipsets/test_Chipset4001.cpp	\
 				chipsets/test_Chipset4011.cpp	\
+				chipsets/test_Chipset4008.cpp		\
 
 SRCS_TESTS	=	$(addprefix $(PATH_TEST), $(FILES_TEST))	\
 
@@ -52,7 +54,7 @@ NAME_DEBUG_TEST	=	./debug_criterion
 
 #------------------ COMPILATION ------------
 
-HEADER		=	-I ./include/ -I ./include/chipsets
+HEADER		=	-I ./include/ -I ./include/chipsets/
 
 CXXFLAGS	=	-W -Wall -Wextra -std=c++11 $(HEADER)
 
