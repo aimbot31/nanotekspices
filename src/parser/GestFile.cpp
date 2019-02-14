@@ -10,7 +10,6 @@
 GestFile::GestFile(char *str) : _filename(str)
 {
 	_file = std::ifstream(_filename);
-	_filename.c_str()
 	if (!_file.is_open())
 		_state = false;
 }
@@ -20,7 +19,6 @@ void GestFile::GetChipsets()
 	//std::map<std::string chipset;
 	bool isChipset = false;
 	std::string line1, line2;
-
 
 	for (std::string line; std::getline(_file, line); ) {
 		if (line.length() <= 1 || !line.find('#', 0))
@@ -37,10 +35,11 @@ void GestFile::GetChipsets()
 				len = line.find('	', 0);
 			line1 = line.substr(0, len);
 			line2 = line.substr(len, line.length());
-			//std::replace(line.begin(), line.end(), 'i', 'd');
-			line1.replace(line1.begin(), line1.end(), "\t", "");
-			line2.replace(line2.begin(), line2.end(), "\t", "");
-			std::cout << "This is line 1 : " << line1 << std::endl << "This is line 2 : " << line2 << std::endl;
+			std::regex pattern{"\\s"};
+			std::string replacement{""};
+			std::istringstream result1(std::regex_replace(line1, pattern, replacement));
+			std::istringstream result2(std::regex_replace(line2, pattern, replacement));
+			std::cout << "This is line 1 : " << result1.str() << std::endl << "This is line 2 : " << result2.str() << std::endl;
 		}
 	}
 }

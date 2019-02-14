@@ -12,7 +12,7 @@
 	#include <utility>
 	#include <string>
 	#include <iostream>
-	#include <algorithm>
+	#include <regex>
 
 	class GestFile {
 		public:

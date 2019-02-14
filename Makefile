@@ -10,6 +10,7 @@ NAME		=	./nanotekspice
 PATH_SRCS	=	./src/
 
 FILES		=	parser/checkArgs.cpp		\
+				parser/GestFile.cpp			\
 				exceptions/Exceptions.cpp
 
 SRCS		=	$(addprefix $(PATH_SRCS), $(FILES))	\
