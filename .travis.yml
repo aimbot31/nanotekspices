@@ -1,8 +1,6 @@
 language: cpp
 
-compiler: g++
-
-sudo: require
+sudo: required
 
 service:
   - docker
@@ -11,7 +9,6 @@ service:
 notifications:
   email:
     recipients:
-    - florent.poinsard@epitech.eu
     - florian.davasse@epitech.eu
     on_success: always
     on_failure: always
@@ -25,13 +22,13 @@ jobs:
           name: "Build"
           if: branch IN (master, dev)
           script:
-            - docker run -v $PWD:/app epitechcontent/epitest-docker bash -c "cd app"
+            - docker run -v $PWD:/app epitechcontent/epitest-docker bash -c "cd app && make"
 
         - stage: tests
           name: "Unit Tests"
           if: branch IN (master, dev)
           script:
-            - docker run -v $PWD:/app epitechcontent/epitest-docker bash -c "cd app && make tests_run"
+            - docker run -v $PWD:/app epitechcontent/epitest-docker bash -c "cd app && make fclean && make travis_run"
 
         - stage: deploy
           name: "Deployement"
