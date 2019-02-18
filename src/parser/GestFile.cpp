@@ -24,13 +24,13 @@ std::unordered_map<int, std::map<std::string, std::string>> GestFile::GetObjects
 	int isChipset = 0;
 
 	for (std::string line; std::getline(_file, line); ) {
-		if (line.length() <= 1 || line.find('#', 0) == 0)
+		if (line.length() <= 1 || !line.compare(0, 1, "#"))
 			continue;
-		if (line.find(".chipsets:", 0) == 0) {
+		if (!line.compare(0, 10, ".chipsets:")) {
 			isChipset = 1;
 			continue;
 		}
-		if (line.find(".links:", 0) == 0) {
+		if (!line.compare(0, 10, ".links:")) {
 			isChipset = 2;
 			continue;
 		}
