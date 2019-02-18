@@ -59,6 +59,10 @@ tests_run:
 	$(CXX) -o $(NAME_TEST) $(SRCS_TESTS) $(SRCS) $(CXXFLAGS) -lcriterion --coverage
 	$(NAME_TEST) --always-succeed
 
+travis_run:
+	$(CXX) -o $(NAME_TEST) $(SRCS_TESTS) $(SRCS) $(CXXFLAGS) -lcriterion --coverage
+	$(NAME_TEST)
+
 clean:
 	rm --force $(OBJS) *.gc*
 
