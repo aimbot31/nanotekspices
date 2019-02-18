@@ -18,7 +18,7 @@
 
 	class GestFile {
 		public:
-			GestFile(char *str);
+			GestFile(char *filename);
 			~GestFile();
 			bool GetStatus() const;
 			std::unordered_map<int, std::map<std::string, std::string>> GetObjects();

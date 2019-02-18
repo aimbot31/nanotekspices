@@ -14,12 +14,17 @@ Test(checkArgs_bad, checkArgs)
 	cr_assert_any_throw(checkArgs(1, str));
 }
 
-//A implementer rapidement !!!!
-// Test(checkArgs_bad_2, checkArgs)
-// {
-// 	char *str[4] = {"./test", "./tests/and.nts", "i=0", "i1=0"};
-// 	cr_assert_any_throw(checkArgs(1, str));
-// }
+Test(checkArgs_bad_2, checkArgs)
+{
+	char *str[4] = {"./test", "./tests/and.nts", "i=0", "i1=0"};
+	cr_assert_any_throw(checkArgs(1, str));
+}
+
+Test(checkArgs_bad_3, checkArgs)
+{
+	char *str[4] = {"./test", "./tests/and.nts", "a=0", "s=0"};
+	cr_assert_any_throw(checkArgs(1, str));
+}
 
 Test(checkArgs_good, checkArgs)
 {

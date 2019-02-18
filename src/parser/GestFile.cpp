@@ -7,7 +7,7 @@
 
 #include "parser/GestFile.hpp"
 
-GestFile::GestFile(char *str) : _filename(str)
+GestFile::GestFile(char *filename) : _filename(filename)
 {
 	_file = std::ifstream(_filename);
 	_state = _file.is_open();
@@ -24,13 +24,13 @@ std::unordered_map<int, std::map<std::string, std::string>> GestFile::GetObjects
 	int isChipset = 0;
 
 	for (std::string line; std::getline(_file, line); ) {
-		if (line.length() <= 1 || !line.find('#', 0))
+		if (line.length() <= 1 || line.find('#', 0) == 0)
 			continue;
-		if (!line.find(".chipsets:", 0)) {
+		if (line.find(".chipsets:", 0) == 0) {
 			isChipset = 1;
 			continue;
 		}
-		if (!line.find(".links:", 0)) {
+		if (line.find(".links:", 0) == 0) {
 			isChipset = 2;
 			continue;
 		}
@@ -46,7 +46,7 @@ std::unordered_map<int, std::map<std::string, std::string>> GestFile::GetObjects
 			std::istringstream result2(std::regex_replace(line2, pattern, replacement));
 			if (result1.str().empty() || result2.str().empty())
 				throw std::exception();
-			objects[isChipset][result1.str()] = result2.str();
+			objects[isChipset][result2.str()] = result1.str();
 		}
 	}
 	// for (auto it : objects) {
