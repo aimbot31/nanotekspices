@@ -22,6 +22,9 @@ FILES		=	PinLink.cpp					\
 				chipsets/Chipset4069.cpp	\
 				chipsets/Chipset4071.cpp	\
 				chipsets/Chipset4081.cpp	\
+        parser/checkArgs.cpp		\
+				parser/GestFile.cpp			\
+				exceptions/Exceptions.cpp \
 
 SRCS		=	$(addprefix $(PATH_SRCS), $(FILES))	\
 
@@ -50,6 +53,8 @@ FILES_TEST	=	test_PinLink.cpp				\
 				chipsets/test_Chipset4069.cpp	\
 				chipsets/test_Chipset4071.cpp	\
 				chipsets/test_Chipset4081.cpp	\
+        parser/test_checkArgs.cpp		\
+				parser/test_GestFile.cpp		\
 
 SRCS_TESTS	=	$(addprefix $(PATH_TEST), $(FILES_TEST))	\
 
@@ -86,6 +91,10 @@ $(NAME): $(OBJS)
 tests_run:
 	$(CXX) -o $(NAME_TEST) $(SRCS_TESTS) $(SRCS) $(CXXFLAGS) -lcriterion --coverage
 	$(NAME_TEST) --always-succeed
+
+travis_run:
+	$(CXX) -o $(NAME_TEST) $(SRCS_TESTS) $(SRCS) $(CXXFLAGS) -lcriterion --coverage
+	$(NAME_TEST)
 
 clean:
 	rm --force $(OBJS) $(OBJS_TEST) *.gc* vgcore.*

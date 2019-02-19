@@ -5,7 +5,10 @@
 ** main
 */
 
-int main(void)
+#include "parser/checkArgs.hpp"
+
+int main(int argc, char **argv)
 {
-	return 0;
+	checkArgs(argc, argv);
+	return (0);
 }
