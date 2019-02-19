@@ -32,6 +32,18 @@ Test(checkArgs_bad_4, checkArgs)
 	cr_assert_any_throw(checkArgs(1, str));
 }
 
+Test(checkArgs_bad_5, checkArgs)
+{
+	char *str[4] = {"./test", "./tests/and.nts", "SALUT A TOUS C JUL", "YAMAH"};
+	cr_assert_any_throw(checkArgs(1, str));
+}
+
+Test(checkArgs_bad_6, checkArgs)
+{
+	char *str[4] = {"./test", "./tests/and.nts", "a=", "b=3"};
+	cr_assert_any_throw(checkArgs(1, str));
+}
+
 Test(checkArgs_good, checkArgs)
 {
 	char *str[] = {"./test", "./tests/and.nts", "a=0", "b=0"};
