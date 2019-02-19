@@ -29,6 +29,8 @@ int checkArgs(int argc, char **argv)
 		if (!tmp.GetStatus()) {
 			std::string tmp = {argv[i]};
 			std::size_t pos = tmp.find('=');
+			if (pos == std::string::npos || pos == tmp.length())
+				throw std::exception();
 			values[tmp.substr(0, pos)] = std::stoi(tmp.substr(pos+1, tmp.length()), nullptr, 10);
 			if (values[tmp.substr(0, pos)] != 0 && values[tmp.substr(0, pos)] != 1)
 				throw std::exception();
