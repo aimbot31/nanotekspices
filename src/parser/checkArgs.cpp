@@ -39,8 +39,5 @@ int checkArgs(int argc, char **argv)
 		component = tmp.GetObjects();
 	}
 	checkValues(component, values);
-	// std::cout << "Valeur à initialiser :" << std::endl;
-	// for (auto it : values)
-	// 	std::cout << "	First : '" << it.first << "'	Second : '" << it.second << "'" << std::endl;
 	return (0);
 }

@@ -49,14 +49,6 @@ std::unordered_map<int, std::map<std::string, std::string>> GestFile::GetObjects
 			objects[isChipset][result2.str()] = result1.str();
 		}
 	}
-	// for (auto it : objects) {
-	// 	if (it.first == 1)
-	// 		std::cout << "Chipsets :" << std::endl;
-	// 	else
-	// 		std::cout << "Links :" << std::endl;		
-	// 	for (auto ite : it.second)
-	// 		std::cout << "	First : '" << ite.first << "'		Second : '" << ite.second << "'"<< std::endl;
-	// }
 	return (objects);
 }
 
