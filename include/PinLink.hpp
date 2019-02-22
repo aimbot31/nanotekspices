@@ -41,7 +41,12 @@
                 * \brief return the output of the other Component pin
                 * \return State of the component
                 */
-                nts::Tristate operator()(void) const;
+                nts::Tristate operator()(void);
+
+                /**
+                * \brief Reset all Execution Pin
+                */                
+                void resetExecution(void);
 
                 /**
                 * \brief Check if the Pin is Link
@@ -51,6 +56,8 @@
             protected:
                 nts::IComponent *_Component;/*!< Ref to the component linked */
                 std::size_t _Pin;/*!< Ref to the Pin of the linked component */
+                nts::Tristate _State;/*!< Previous States */
+                bool _Execute = false;/*!< Execute */
             private:
         };
 

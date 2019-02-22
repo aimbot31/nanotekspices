@@ -36,5 +36,5 @@ Test(PinLink, BoolComparaison)
         cr_assert(1);
     else
         cr_assert(0);
-    cr_assert_any_throw(toto());
+    cr_assert_eq(toto(), nts::Tristate::UNDEFINED);
 }

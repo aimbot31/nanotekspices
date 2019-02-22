@@ -49,6 +49,15 @@ void nts::AComponent::dump(void) const
 }
 
 /**
+* \brief reset Execution variable of link
+*/
+void nts::AComponent::resetExecution(void)
+{
+    for (auto it = _PinLink.begin(); it != _PinLink.end(); it++)
+        it->second.resetExecution();
+}
+
+/**
 * \brief Deconstructor for the AComponent class
 */
 nts::AComponent::~AComponent()

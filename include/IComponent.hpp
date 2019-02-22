@@ -38,6 +38,7 @@
 				virtual void setLink(std::size_t pin, nts::IComponent &other, std::size_t otherPin) = 0;
 				virtual void dump(void) const = 0;
 				virtual const std::string &getName(void) const noexcept = 0;
+				virtual void resetExecution(void) = 0;
 		};
 	}
 
