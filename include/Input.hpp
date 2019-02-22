@@ -22,7 +22,7 @@
         */
         class Input : public nts::AComponent {
             public:
-                Input(const std::string &name);
+                Input(const std::string &name, nts::Tristate state = nts::Tristate::UNDEFINED);
                 ~Input();
 
                 // Mandatory

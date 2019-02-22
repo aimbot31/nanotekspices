@@ -18,9 +18,9 @@ using namespace nts;
 * \param[in] std::string name is the name of the compenent
 * \return Input
 */
-Input::Input(const std::string &name) :
+Input::Input(const std::string &name, nts::Tristate state) :
 nts::AComponent(name),
-_Value(nts::Tristate::UNDEFINED)
+_Value(state)
 {}
 
 /**
@@ -28,10 +28,10 @@ _Value(nts::Tristate::UNDEFINED)
 * \param[in] std::size_t pin the pin of the Component that we want the state
 * \return nts::Tristate State of the pin
 */
-nts::Tristate Input::compute(size_t pin)
+nts::Tristate Input::compute(std::size_t pin)
 {
-    (void)pin;
-    return _Value;
+	(void)pin;
+	return _Value;
 }
 
 /**
@@ -40,7 +40,7 @@ nts::Tristate Input::compute(size_t pin)
 */
 void Input::setInputValue(nts::Tristate value) noexcept
 {
-    _Value = value;
+	_Value = value;
 }
 
 Input::~Input()

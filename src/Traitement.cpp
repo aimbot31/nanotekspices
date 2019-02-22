@@ -14,6 +14,8 @@ nts::Traitement::Traitement(Args &args)
 			throw std::exception();
 		_type[k.first] = k.second;
 	}
+	for (auto k : args.values)
+		static_cast<nts::Input *>(_component[k.first].get())->setInputValue(nts::Tristate(k.second));
 	for (auto k : args.component[2]) {
 		std::size_t pos1 = k.second.find(':');
 		std::size_t pos2 = k.first.find(':');
