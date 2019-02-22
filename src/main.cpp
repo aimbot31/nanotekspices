@@ -6,9 +6,19 @@
 */
 
 #include "parser/checkArgs.hpp"
+#include "Traitement.hpp"
 
 int main(int argc, char **argv)
 {
-	checkArgs(argc, argv);
+	Args args;
+
+	try {
+		checkArgs(argc, argv, args);
+		nts::Traitement nanotekspice(args);
+		nanotekspice.run();
+	} catch(const std::exception& e) {
+		std::cerr << e.what() << '\n';
+		return (84);
+	}
 	return (0);
 }

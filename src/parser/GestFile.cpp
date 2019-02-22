@@ -46,17 +46,16 @@ std::unordered_map<int, std::map<std::string, std::string>> GestFile::GetObjects
 			std::istringstream result2(std::regex_replace(line2, pattern, replacement));
 			if (result1.str().empty() || result2.str().empty())
 				throw std::exception();
+			if (isChipset == 2) {
+				std::size_t pos1 = result1.str().find(':');
+				std::size_t pos2 = result2.str().find(':');
+				if (pos1 == std::string::npos || pos2 == std::string::npos ||
+					pos1 == result1.str().length() || pos2 == result2.str().length())
+					throw std::exception();
+			}
 			objects[isChipset][result2.str()] = result1.str();
 		}
 	}
-	// for (auto it : objects) {
-	// 	if (it.first == 1)
-	// 		std::cout << "Chipsets :" << std::endl;
-	// 	else
-	// 		std::cout << "Links :" << std::endl;		
-	// 	for (auto ite : it.second)
-	// 		std::cout << "	First : '" << ite.first << "'		Second : '" << ite.second << "'"<< std::endl;
-	// }
 	return (objects);
 }
 
