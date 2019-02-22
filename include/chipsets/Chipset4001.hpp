@@ -33,6 +33,6 @@
 				nts::Tristate operation(std::size_t pin1, std::size_t pin2);
 				static constexpr std::size_t _numberOfPin = 13;
 		};
-	}
+	};
 
 #endif /* !CHIPSET4001_HPP_ */

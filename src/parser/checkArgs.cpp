@@ -17,11 +17,8 @@ static void checkValues(std::unordered_map<int, std::map<std::string, std::strin
 	}
 }
 
-int checkArgs(int argc, char **argv)
+int checkArgs(int argc, char **argv, Args &args)
 {
-	std::unordered_map<int, std::map<std::string, std::string>> component;
-	std::map<std::string, int> values;
-
 	if (argc <= 1)
 		throw nts::InputError("Please enter enough args", "checkArgs");
 	for (int i = 1; i < argc; i++) {
@@ -31,16 +28,13 @@ int checkArgs(int argc, char **argv)
 			std::size_t pos = tmp.find('=');
 			if (pos == std::string::npos || pos == tmp.length())
 				throw std::exception();
-			values[tmp.substr(0, pos)] = std::stoi(tmp.substr(pos+1, tmp.length()), nullptr, 10);
-			if (values[tmp.substr(0, pos)] != 0 && values[tmp.substr(0, pos)] != 1)
+			args.values[tmp.substr(0, pos)] = std::stoi(tmp.substr(pos+1, tmp.length()), nullptr, 10);
+			if (args.values[tmp.substr(0, pos)] != 0 && args.values[tmp.substr(0, pos)] != 1)
 				throw std::exception();
 			continue;
 		}
-		component = tmp.GetObjects();
+		args.component = tmp.GetObjects();
 	}
-	checkValues(component, values);
-	// std::cout << "Valeur à initialiser :" << std::endl;
-	// for (auto it : values)
-	// 	std::cout << "	First : '" << it.first << "'	Second : '" << it.second << "'" << std::endl;
+	checkValues(args.component, args.values);
 	return (0);
 }

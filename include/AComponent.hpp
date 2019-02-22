@@ -45,7 +45,7 @@
 				* \param[in] the other Component 
 				* \param[in] the pin of the other Component
 				*/
-				void setLink(size_t pin, IComponent &other, size_t otherpin) override final;
+				void setLink(std::size_t pin, nts::IComponent &other, std::size_t otherpin) final;
 
 				/**
 				* \brief get the state of the pin in function of the input pin corresponding

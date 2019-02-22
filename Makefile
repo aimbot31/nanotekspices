@@ -11,10 +11,12 @@ PATH_SRCS	=	./src/
 
 FILES		=	PinLink.cpp					\
 				AComponent.cpp				\
-            	Input.cpp					\
-                Gates.cpp					\
+				Input.cpp					\
+				Gates.cpp					\
 				Output.cpp					\
 				Circuit.cpp					\
+				factory/factory.cpp			\
+				Traitement.cpp				\
 				chipsets/Chipset4001.cpp	\
 				chipsets/Chipset4011.cpp	\
 				chipsets/Chipset4008.cpp	\
@@ -22,9 +24,9 @@ FILES		=	PinLink.cpp					\
 				chipsets/Chipset4069.cpp	\
 				chipsets/Chipset4071.cpp	\
 				chipsets/Chipset4081.cpp	\
-        parser/checkArgs.cpp		\
+				parser/checkArgs.cpp		\
 				parser/GestFile.cpp			\
-				exceptions/Exceptions.cpp \
+				exceptions/Exceptions.cpp	\
 
 SRCS		=	$(addprefix $(PATH_SRCS), $(FILES))	\
 
@@ -53,7 +55,7 @@ FILES_TEST	=	test_PinLink.cpp				\
 				chipsets/test_Chipset4069.cpp	\
 				chipsets/test_Chipset4071.cpp	\
 				chipsets/test_Chipset4081.cpp	\
-        parser/test_checkArgs.cpp		\
+				parser/test_checkArgs.cpp		\
 				parser/test_GestFile.cpp		\
 
 SRCS_TESTS	=	$(addprefix $(PATH_TEST), $(FILES_TEST))	\
@@ -71,7 +73,7 @@ NAME_DEBUG_TEST	=	./debug_criterion
 
 HEADER		=	-I ./include/ -I ./include/chipsets/
 
-CXXFLAGS	=	-W -Wall -Wextra -std=c++11 $(HEADER)
+CXXFLAGS	=	-W -Wall -Wextra -std=c++11 $(HEADER) -g3
 
 CXX			=	g++
 
