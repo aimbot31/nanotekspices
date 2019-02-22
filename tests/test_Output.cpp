@@ -30,6 +30,7 @@ Test(Output, computeValue)
     a1.setLink(1, a2, 1);
     cr_assert_eq(a1.compute(), nts::Tristate::UNDEFINED);
     a2.setInputValue(nts::Tristate::TRUE);
+    a1.resetExecution();
     cr_assert_eq(a1.compute(), nts::Tristate::TRUE);
     a3.setLink(1, a1, 1);
     cr_assert_eq(a3.compute(), nts::Tristate::TRUE);

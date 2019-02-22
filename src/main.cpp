@@ -5,16 +5,15 @@
 ** main
 */
 
-#include "parser/checkArgs.hpp"
+#include "Parser.hpp"
 #include "Traitement.hpp"
 
 int main(int argc, char **argv)
 {
-	Args args;
 
 	try {
-		checkArgs(argc, argv, args);
-		nts::Traitement nanotekspice(args);
+		Parser nanoParser(argc, argv);
+		nts::Traitement nanotekspice(nanoParser.getArgs());
 		nanotekspice.run();
 	} catch(const std::exception& e) {
 		std::cerr << e.what() << '\n';
