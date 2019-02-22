@@ -29,6 +29,8 @@ std::unique_ptr<nts::IComponent> createComponent(const std::string &type, const 
 	tab["4071"] = [value]()->std::unique_ptr<nts::IComponent> { return (std::move(std::unique_ptr<nts::IComponent>(new nts::Chipset4071(value)))); };
 	tab["4081"] = [value]()->std::unique_ptr<nts::IComponent> { return (std::move(std::unique_ptr<nts::IComponent>(new nts::Chipset4081(value)))); };
 	tab["input"] = [value]()->std::unique_ptr<nts::IComponent> { return (std::move(std::unique_ptr<nts::IComponent>(new nts::Input(value)))); };
+	//tab["true"] = [value]()->std::unique_ptr<nts::IComponent> { return (std::move(std::unique_ptr<nts::IComponent>(new nts::Input(value)->setInputValue(nts::TRUE)))); };
+	//tab["false"] = [value]()->std::unique_ptr<nts::IComponent> { return (std::move(std::unique_ptr<nts::IComponent>(new nts::Input(value)->setInputValue(nts::FALSE)))); };
 	tab["output"] = [value]()->std::unique_ptr<nts::IComponent> { return (std::move(std::unique_ptr<nts::IComponent>(new nts::Output(value)))); };
 
 	return (tab.count(value) == 0 ? nullptr : std::move(tab[value]()));

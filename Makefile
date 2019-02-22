@@ -11,10 +11,11 @@ PATH_SRCS	=	./src/
 
 FILES		=	PinLink.cpp					\
 				AComponent.cpp				\
-            	Input.cpp					\
-                Gates.cpp					\
+				Input.cpp					\
+				Gates.cpp					\
 				Output.cpp					\
 				Circuit.cpp					\
+				Traitement.cpp				\
 				chipsets/Chipset4001.cpp	\
 				chipsets/Chipset4011.cpp	\
 				chipsets/Chipset4008.cpp	\

@@ -6,9 +6,14 @@
 */
 
 #include "parser/checkArgs.hpp"
+#include "Traitement.hpp"
 
 int main(int argc, char **argv)
 {
-	checkArgs(argc, argv);
+	Args args;
+
+	checkArgs(argc, argv, args);
+	nts::Traitement nts(args);
+	nts.run();
 	return (0);
 }
