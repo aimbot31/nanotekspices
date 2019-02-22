@@ -15,8 +15,8 @@ FILES		=	PinLink.cpp					\
 				Gates.cpp					\
 				Output.cpp					\
 				Circuit.cpp					\
-				Traitement.cpp				\
 				factory/factory.cpp			\
+				Traitement.cpp				\
 				chipsets/Chipset4001.cpp	\
 				chipsets/Chipset4011.cpp	\
 				chipsets/Chipset4008.cpp	\
@@ -73,7 +73,7 @@ NAME_DEBUG_TEST	=	./debug_criterion
 
 HEADER		=	-I ./include/ -I ./include/chipsets/
 
-CXXFLAGS	=	-W -Wall -Wextra -std=c++11 $(HEADER)
+CXXFLAGS	=	-W -Wall -Wextra -std=c++11 $(HEADER) -g3
 
 CXX			=	g++
 

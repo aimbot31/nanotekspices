@@ -7,7 +7,7 @@
 
 #include "factory/factory.hpp"
 
-std::unique_ptr<nts::IComponent> createComponent(const std::string &type, const std::string &value)
+std::unique_ptr<nts::IComponent> nts::createComponent(const std::string &type, const std::string &value)
 {
 	std::unordered_map<std::string, std::function<std::unique_ptr<nts::IComponent>()>> tab;
 

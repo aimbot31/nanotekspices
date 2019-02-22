@@ -19,7 +19,7 @@ nts::Traitement::Traitement(Args &args)
 		std::size_t pos2 = k.first.find(':');
 		if ((_component.count(k.second.substr(0, pos1)) == 0) || (_component.count(k.first.substr(0, pos2)) == 0))
 			throw std::exception();
-		_component[k.second.substr(0, pos1)]->setLink(std::stoi(k.second.substr(pos1+1, k.second.length()), nullptr, 10), *_component[k.first.substr(0, pos2)].get(), std::stoi(k.first.substr(pos2, k.first.length()), nullptr, 10));
+		_component[k.second.substr(0, pos1)]->setLink(std::stoi(k.second.substr(pos1+1, k.second.length()), nullptr, 10), *_component[k.first.substr(0, pos2)].get(), std::stoi(k.first.substr(pos2+1, k.first.length()), nullptr, 10));
 	}
 }
 
