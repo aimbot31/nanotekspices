@@ -6,7 +6,6 @@
 */
 
 #include "Traitement.hpp"
-#include <iostream>
 
 nts::Traitement::Traitement(Args &args)
 {
