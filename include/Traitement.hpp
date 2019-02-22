@@ -21,6 +21,7 @@
 				int run();
 			protected:
 				std::map<std::string, std::unique_ptr<nts::IComponent>> _component;
+				std::map<std::string, std::string> _type;
 		};
 	};
 

@@ -12,8 +12,13 @@ int main(int argc, char **argv)
 {
 	Args args;
 
-	checkArgs(argc, argv, args);
-	nts::Traitement nts(args);
-	nts.run();
+	try {
+		checkArgs(argc, argv, args);
+		nts::Traitement nanotekspice(args);
+		nanotekspice.run();
+	} catch(const std::exception& e) {
+		std::cerr << e.what() << '\n';
+		return (84);
+	}
 	return (0);
 }

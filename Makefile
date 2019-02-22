@@ -16,6 +16,7 @@ FILES		=	PinLink.cpp					\
 				Output.cpp					\
 				Circuit.cpp					\
 				Traitement.cpp				\
+				factory/factory.cpp			\
 				chipsets/Chipset4001.cpp	\
 				chipsets/Chipset4011.cpp	\
 				chipsets/Chipset4008.cpp	\

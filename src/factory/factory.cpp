@@ -33,5 +33,5 @@ std::unique_ptr<nts::IComponent> createComponent(const std::string &type, const 
 	//tab["false"] = [value]()->std::unique_ptr<nts::IComponent> { return (std::move(std::unique_ptr<nts::IComponent>(new nts::Input(value)->setInputValue(nts::FALSE)))); };
 	tab["output"] = [value]()->std::unique_ptr<nts::IComponent> { return (std::move(std::unique_ptr<nts::IComponent>(new nts::Output(value)))); };
 
-	return (tab.count(value) == 0 ? nullptr : std::move(tab[value]()));
+	return (tab.count(type) == 0 ? nullptr : std::move(tab[type]()));
 }
