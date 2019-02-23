@@ -46,22 +46,12 @@ nts::Tristate Chipset4008::getCarry(nts::Tristate before1, nts::Tristate before2
 
 nts::Tristate Chipset4008::otherOperation(std::size_t pin1, std::size_t pin2)
 {
-	if (!_PinLink[pin1])
-		throw std::exception(); // Not Linked Pin1
-	if (!_PinLink[pin2])
-		throw std::exception(); // Not Linked Pin2
 	nts::Tristate input[2] = {_PinLink[pin1](), _PinLink[pin2]()};
 	return this->sum(input[0], input[1], _Carry);
 }
 
 nts::Tristate Chipset4008::firstOperation(std::size_t pin1, std::size_t pin2, std::size_t pin3)
 {
-	if (!_PinLink[pin1])
-		throw std::exception(); // Not Linked Pin1
-	if (!_PinLink[pin2])
-		throw std::exception(); // Not Linked Pin2
-	if (!_PinLink[pin3])
-		throw std::exception(); // Not Linked Pin3
 	nts::Tristate input[3] = {_PinLink[pin1](), _PinLink[pin2](), _PinLink[pin3]()};
 	return this->sum(input[0], input[1], input[2]);
 }

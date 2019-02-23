@@ -11,6 +11,7 @@
 
 #include <algorithm>
 #include "Circuit.hpp"
+#include "Parser.hpp"
 
 using namespace nts;
 
@@ -19,9 +20,13 @@ using namespace nts;
 * \param[in] std::string name is the name of the compenent
 * \return Circuit
 */
-Circuit::Circuit(const std::string &name) :
+Circuit::Circuit(int ac, char **av, const std::string &name) :
+Traitement(Parser(ac, av).getArgs()),
 nts::AComponent(name)
-{}
+{
+	this->computeAll();
+	this->displayAll();
+}
 
 /**
 * \brief static function to call all the dump method of Component
@@ -35,39 +40,59 @@ void Circuit::dumpFromMap(const std::map<std::string, std::unique_ptr<nts::IComp
 /**
 * \brief Method To display all the Component in the Circuit
 */
-void Circuit::dump(void) const
+
+void Circuit::dumpAll(void)
 {
 	std::for_each(_Components.cbegin(), _Components.cend(), this->dumpFromMap);
 }
 
-/**
-* \brief Method To Add a Component to the Circuit, in function of his type
-* \param[in] NewComponent
-* \param[in] type
-*/
-void Circuit::addComponent(std::unique_ptr<nts::IComponent> &NewComponent, ComponentType type)
+void Circuit::setInputValue(std::string &name, nts::Tristate value)
 {
-	if (!NewComponent)
-		throw std::exception(); // can't add empty component
-	if (_Components[NewComponent->getName()])
-		throw std::exception(); // already have this name for component
-	this->addPin(NewComponent.get(), type);
-	_Components[NewComponent->getName()] = std::move(NewComponent);
+	for (auto component : _type) {
+		if (component.second == "input")
+			if (component.first == name)
+				static_cast<Input &>(*_Components[component.first]).setInputValue(value);
+	}
 }
 
 /**
-* \brief Method To Add a Link to the Circuit, in function of his type
-* \param[in] NewOuput
-* \param[in] type
+* \brief Compute All output Pin
 */
-void Circuit::addPin(nts::IComponent *NewOutput, ComponentType type) noexcept
+void Circuit::computeAll(void)
 {
-	if (type == Circuit::ComponentType::INTERN || !NewOutput)
-		return;
-	if (type == Circuit::ComponentType::OUTPUT) {
-		this->setLink(_NbPin, *NewOutput, 1);
+	this->resetExecution();
+	for (auto it = _Components.begin(); it != _Components.end(); it++) {
+		if (_type.at(it->first) == "output") {
+			it->second->compute();
+		}
 	}
-	_NbPin += 1;
+}
+
+/**
+* \brief Display All output Pin
+*/
+void Circuit::displayAll(void)
+{
+	for (auto it = _Components.begin(); it != _Components.end(); it++) {
+		if (_type.at(it->first) == "output") {
+			std::cout << it->first << "=" <<  it->second->compute() << std::endl;
+		}
+	}
+}
+
+/**
+* \brief static function to call all the reset method of Component
+* \param[in] std::map<std::string, std::unique_ptr<nts::IComponent>> &elem 
+*/
+void Circuit::resetIComponent(std::map<std::string, std::unique_ptr<nts::IComponent>>::value_type &elem)
+{
+	elem.second->resetExecution();
+}
+
+
+void Circuit::resetExecution(void)
+{
+	std::for_each(_Components.begin(), _Components.end(), this->resetIComponent);
 }
 
 /**
@@ -80,8 +105,6 @@ nts::Tristate Circuit::compute(std::size_t pin)
 	if (pin < 1 || pin > _NbPin)
 		throw std::exception(); // Invalid Pin
 	pin -= 1;
-	if (!_PinLink[pin])
-		throw std::exception(); // Pin not linked
 	return _PinLink[pin]();
 }
 

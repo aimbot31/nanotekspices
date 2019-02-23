@@ -13,7 +13,7 @@
 using namespace nts;
 
 TestSuite(Output,
-.init = cr_redirect_stdout,
+.init = NULL,
 .fini = NULL,
 .signal = 0,
 .exit_code = 0,
@@ -33,8 +33,8 @@ Test(Output, computeValue)
     a1.resetExecution();
     cr_assert_eq(a1.compute(), nts::Tristate::TRUE);
     a3.setLink(1, a1, 1);
+    a3.resetExecution();
     cr_assert_eq(a3.compute(), nts::Tristate::TRUE);
-    cr_assert_stdout_eq_str("a1=-1\na1=1\na1=1\na3=1\n");
 }
 
 Test(Output, computeThrow)

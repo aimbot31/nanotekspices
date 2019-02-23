@@ -5,15 +5,13 @@
 ** main
 */
 
-#include "Parser.hpp"
-#include "Traitement.hpp"
+#include "NanoTekSpice.hpp"
 
 int main(int argc, char **argv)
 {
 
 	try {
-		Parser nanoParser(argc, argv);
-		nts::Traitement nanotekspice(nanoParser.getArgs());
+		nts::NanoTekSpice nanotekspice(argc, argv);
 		nanotekspice.run();
 	} catch(const std::exception& e) {
 		std::cerr << e.what() << '\n';

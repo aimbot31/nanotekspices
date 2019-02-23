@@ -18,10 +18,9 @@
 				Traitement(Args &args);
 				~Traitement();
 
-				int run();
 			protected:
-				std::map<std::string, std::unique_ptr<nts::IComponent>> _component;
-				std::map<std::string, std::string> _type;
+				std::map<std::string, std::unique_ptr<nts::IComponent>> _Components;/*!< All the Component */
+				std::map<std::string, std::string> _type;/*!< type of object from name */
 		};
 	};
 

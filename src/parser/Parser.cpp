@@ -14,20 +14,6 @@ Parser::Parser(int argc, char **argv)
 	checkArgs(argc, argv, _Args);
 }
 
-void Parser::getCommand(void)
-{
-	std::cout << ">";
-	std::string command;
-
-	getline(std::cin, command);
-	checkCommand(command);
-}
-
-void Parser::checkCommand(std::string command)
-{
-	// TODO
-}
-
 /**
 * \brief Check if the link are Correct
 * \param[in] file Content
