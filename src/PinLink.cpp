@@ -23,11 +23,21 @@ _Pin(pinOfComponent)
 PinLink::~PinLink()
 {}
 
-nts::Tristate PinLink::operator()(void) const
+nts::Tristate PinLink::operator()(void)
 {
+    if (_Execute)
+        return _State;
+    _Execute = true;
     if (!_Component)
-        throw std::exception(); // Unlinked
-    return _Component->compute(_Pin);
+        _State = nts::Tristate::UNDEFINED;
+    else
+        _State = _Component->compute(_Pin);
+    return _State;
+}
+
+void PinLink::resetExecution(void)
+{
+    _Execute = false;
 }
 
 PinLink::operator bool(void) const

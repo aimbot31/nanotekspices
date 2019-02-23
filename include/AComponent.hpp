@@ -60,6 +60,11 @@
 				void dump(void) const;
 
 				/**
+				* \brief reset Execution variable of link
+				*/
+				void resetExecution(void);
+
+				/**
 				* \brief return Name of the Component
 				* \return Return std::string the name of the Component 
 				*/

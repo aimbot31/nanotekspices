@@ -2,14 +2,24 @@
 ** EPITECH PROJECT, 2019
 ** nanotekspices
 ** File description:
-** CheckArgs
+** Parser
 */
 
-#include "parser/checkArgs.hpp"
-#include "parser/GestFile.hpp"
-#include "exceptions/Exceptions.hpp"
+#include "Parser.hpp"
+#include "GestFile.hpp"
+#include "Exceptions.hpp"
 
-static void checkValues(std::unordered_map<int, std::map<std::string, std::string>> &component, std::map<std::string, int> &values)
+Parser::Parser(int argc, char **argv)
+{
+	checkArgs(argc, argv, _Args);
+}
+
+/**
+* \brief Check if the link are Correct
+* \param[in] file Content
+* \param[in] link
+*/
+void Parser::checkValues(std::unordered_map<int, std::map<std::string, std::string>> &component, std::map<std::string, int> &values)
 {
 	for (auto key : values) {
 		if (component[1].count(key.first) == 0 || component[1][key.first] != "input")
@@ -17,7 +27,13 @@ static void checkValues(std::unordered_map<int, std::map<std::string, std::strin
 	}
 }
 
-int checkArgs(int argc, char **argv, Args &args)
+/**
+* \brief Check That the Args are Correct
+* \param[in] nb of args
+* \param[in] content of argv
+* \param[in] container to fill
+*/
+void Parser::checkArgs(int argc, char **argv, Args &args)
 {
 	if (argc <= 1)
 		throw nts::InputError("Please enter enough args", "checkArgs");
@@ -36,5 +52,8 @@ int checkArgs(int argc, char **argv, Args &args)
 		args.component = tmp.GetObjects();
 	}
 	checkValues(args.component, args.values);
-	return (0);
+}
+
+Parser::~Parser()
+{
 }

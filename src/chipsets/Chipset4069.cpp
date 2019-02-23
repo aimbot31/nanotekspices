@@ -30,8 +30,6 @@ nts::AComponent(name, Chipset4069::_numberOfPin)
 */
 nts::Tristate Chipset4069::operation(std::size_t pin1)
 {
-	if (!_PinLink[pin1])
-		throw std::exception(); // Not Linked Pin1
 	return nts::Gates::Not(_PinLink[pin1]());
 }
 

@@ -26,7 +26,7 @@ Test(Chipset4069, computeWrongPin)
 {
     Chipset4069 toto("a0");
 
-    cr_assert_any_throw(toto.compute());
+    cr_expect_any_throw(toto.compute());
 }
 
 Test(Chipset4069, computeFirstGate)
@@ -34,9 +34,10 @@ Test(Chipset4069, computeFirstGate)
     Chipset4069 toto("a0");
     Input a1("a1");
 
-    cr_assert_any_throw(toto.compute(2));
+    cr_expect_eq(toto.compute(2), nts::Tristate::UNDEFINED);
+    a1.setInputValue(nts::Tristate::TRUE);
     toto.setLink(1, a1, 1);
-    cr_assert_eq(toto.compute(2), nts::Tristate::UNDEFINED);
+    cr_expect_eq(toto.compute(2), nts::Tristate::FALSE);
 }
 
 Test(Chipset4069, computeSecondGate)
@@ -45,7 +46,8 @@ Test(Chipset4069, computeSecondGate)
     Input a1("a1");
 
     toto.setLink(3, a1, 1);
-    cr_assert_eq(toto.compute(4), nts::Tristate::UNDEFINED);
+    a1.setInputValue(nts::Tristate::TRUE);
+    cr_expect_eq(toto.compute(4), nts::Tristate::FALSE);
 }
 
 Test(Chipset4069, computeThirdGate)
@@ -54,7 +56,8 @@ Test(Chipset4069, computeThirdGate)
     Input a1("a1");
 
     toto.setLink(5, a1, 1);
-    cr_assert_eq(toto.compute(6), nts::Tristate::UNDEFINED);
+    a1.setInputValue(nts::Tristate::TRUE);
+    cr_expect_eq(toto.compute(6), nts::Tristate::FALSE);
 }
 
 Test(Chipset4069, computeFourthGate)
@@ -63,7 +66,8 @@ Test(Chipset4069, computeFourthGate)
     Input a1("a1");
 
     toto.setLink(9, a1, 1);
-    cr_assert_eq(toto.compute(8), nts::Tristate::UNDEFINED);
+    a1.setInputValue(nts::Tristate::TRUE);
+    cr_expect_eq(toto.compute(8), nts::Tristate::FALSE);
 }
 
 Test(Chipset4069, computeFithGate)
@@ -72,7 +76,8 @@ Test(Chipset4069, computeFithGate)
     Input a1("a1");
 
     toto.setLink(11, a1, 1);
-    cr_assert_eq(toto.compute(10), nts::Tristate::UNDEFINED);
+    a1.setInputValue(nts::Tristate::TRUE);
+    cr_expect_eq(toto.compute(10), nts::Tristate::FALSE);
 }
 
 Test(Chipset4069, computeSixGate)
@@ -81,5 +86,6 @@ Test(Chipset4069, computeSixGate)
     Input a1("a1");
 
     toto.setLink(13, a1, 1);
-    cr_assert_eq(toto.compute(12), nts::Tristate::UNDEFINED);
+    a1.setInputValue(nts::Tristate::TRUE);
+    cr_expect_eq(toto.compute(12), nts::Tristate::FALSE);
 }

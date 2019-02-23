@@ -32,15 +32,15 @@ Test(Chipset4008, computeWrongPin)
     Input a5("a1");
 
     cr_assert_any_throw(toto.compute());
-    cr_assert_any_throw(toto.compute(10));
+    cr_assert_eq(toto.compute(10), nts::Tristate::UNDEFINED);
     toto.setLink(6, a1, 1);
-    cr_assert_any_throw(toto.compute(10));
+    cr_assert_eq(toto.compute(10), nts::Tristate::UNDEFINED);
     toto.setLink(7, a2, 1);
-    cr_assert_any_throw(toto.compute(10));
+    cr_assert_eq(toto.compute(10), nts::Tristate::UNDEFINED);
     toto.setLink(9, a3, 1);
-    cr_assert_any_throw(toto.compute(10));
+    cr_assert_eq(toto.compute(10), nts::Tristate::UNDEFINED);
     toto.setLink(4, a4, 1);
-    cr_assert_any_throw(toto.compute(10));
+    cr_assert_eq(toto.compute(10), nts::Tristate::UNDEFINED);
 }
 
 

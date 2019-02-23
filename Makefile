@@ -24,9 +24,10 @@ FILES		=	PinLink.cpp					\
 				chipsets/Chipset4069.cpp	\
 				chipsets/Chipset4071.cpp	\
 				chipsets/Chipset4081.cpp	\
-				parser/checkArgs.cpp		\
+				parser/Parser.cpp		\
 				parser/GestFile.cpp			\
 				exceptions/Exceptions.cpp	\
+				NanoTekSpice.cpp			\
 
 SRCS		=	$(addprefix $(PATH_SRCS), $(FILES))	\
 
@@ -47,7 +48,6 @@ FILES_TEST	=	test_PinLink.cpp				\
 				test_Input.cpp					\
 				test_Gates.cpp					\
 				test_Output.cpp					\
-				test_Circuit.cpp				\
 				chipsets/test_Chipset4001.cpp	\
 				chipsets/test_Chipset4008.cpp	\
 				chipsets/test_Chipset4011.cpp	\
@@ -71,7 +71,7 @@ NAME_DEBUG_TEST	=	./debug_criterion
 
 #------------------ COMPILATION ------------
 
-HEADER		=	-I ./include/ -I ./include/chipsets/
+HEADER		=	-I ./include/ -I ./include/chipsets/ -I ./include/parser -I ./include/exceptions
 
 CXXFLAGS	=	-W -Wall -Wextra -std=c++11 $(HEADER) -g3
 
@@ -121,7 +121,7 @@ $(NAME_QUICK_TEST): $(OBJS_TEST)
 	$(CXX) -o $(NAME_QUICK_TEST) $(OBJS_TEST) $(CXXFLAGS)  -lcriterion --coverage
 
 run$(NAME_QUICK_TEST): $(NAME_QUICK_TEST)
-	./$(NAME_QUICK_TEST) --always-succeed --verbose -S --full-stats -j4 --filter="*$T" --timeout=180
+	./$(NAME_QUICK_TEST) --always-succeed --verbose -S --full-stats -j4 --filter="*$T*" --timeout=180
 
 # ---------------- MANDATORY ---------------
 
