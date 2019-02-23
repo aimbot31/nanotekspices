@@ -22,11 +22,6 @@ class Parser {
         inline Args &getArgs(void)  {    return _Args;   };
 
         /**
-        * \brief getCommand
-        */
-        void getCommand(void);
-
-        /**
         * \brief Check That the Args are Correct
         * \param[in] nb of args
         * \param[in] content of argv

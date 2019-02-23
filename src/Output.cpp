@@ -35,7 +35,6 @@ nts::Tristate Output::compute(std::size_t pin)
     if (!_PinLink[pin])
         throw std::exception();// Link Not Set
     nts::Tristate rValue = _PinLink[pin]();
-    std::cout << _Name << "=" << rValue << std::endl;
     return rValue;
 }
 

@@ -26,7 +26,7 @@ Test(Chipset4001, computeWrongPin)
 {
     Chipset4001 toto("a0");
 
-    cr_assert_any_throw(toto.compute());
+    cr_expect_any_throw(toto.compute());
 }
 
 Test(Chipset4001, computeFirstGate)
@@ -35,11 +35,11 @@ Test(Chipset4001, computeFirstGate)
     Input a1("a1");
     Input a2("a2");
 
-    cr_assert_any_throw(toto.compute(3));
+    cr_expect_eq(toto.compute(3), nts::Tristate::UNDEFINED);
     toto.setLink(1, a1, 1);
-    cr_assert_any_throw(toto.compute(3));
+    cr_expect_eq(toto.compute(3), nts::Tristate::UNDEFINED);
     toto.setLink(2, a2, 1);
-    cr_assert_eq(toto.compute(3), nts::Tristate::UNDEFINED);
+    cr_expect_eq(toto.compute(3), nts::Tristate::UNDEFINED);
 }
 
 Test(Chipset4001, computeSecondGate)
@@ -48,11 +48,11 @@ Test(Chipset4001, computeSecondGate)
     Input a1("a1");
     Input a2("a2");
 
-    cr_assert_any_throw(toto.compute(4));
+    cr_expect_eq(toto.compute(4), nts::Tristate::UNDEFINED);
     toto.setLink(5, a1, 1);
-    cr_assert_any_throw(toto.compute(4));
+    cr_expect_eq(toto.compute(4), nts::Tristate::UNDEFINED);
     toto.setLink(6, a2, 1);
-    cr_assert_eq(toto.compute(4), nts::Tristate::UNDEFINED);
+    cr_expect_eq(toto.compute(4), nts::Tristate::UNDEFINED);
 }
 
 Test(Chipset4001, computeThirdGate)
@@ -61,12 +61,12 @@ Test(Chipset4001, computeThirdGate)
     Input a1("a1");
     Input a2("a2");
 
-    cr_assert_any_throw(toto.compute(10));
+    cr_expect_eq(toto.compute(10), nts::Tristate::UNDEFINED);
     toto.setLink(8, a1, 1);
-    cr_assert_any_throw(toto.compute(10));
+    cr_expect_eq(toto.compute(10), nts::Tristate::UNDEFINED);
     toto.setLink(9, a2, 1);
     toto.compute(10);
-    cr_assert_eq(toto.compute(10), nts::Tristate::UNDEFINED);
+    cr_expect_eq(toto.compute(10), nts::Tristate::UNDEFINED);
 }
 
 Test(Chipset4001, computeFourthGate)
@@ -75,12 +75,13 @@ Test(Chipset4001, computeFourthGate)
     Input a1("a1");
     Input a2("a2");
 
-    cr_assert_any_throw(toto.compute(11));
+    cr_expect_eq(toto.compute(11), nts::Tristate::UNDEFINED);
     toto.setLink(12, a1, 1);
-    cr_assert_any_throw(toto.compute(11));
+    cr_expect_eq(toto.compute(11), nts::Tristate::UNDEFINED);
     toto.setLink(13, a2, 1);
     a1.setInputValue(nts::Tristate::FALSE);
     a2.setInputValue(nts::Tristate::FALSE);
+    toto.resetExecution();
     toto.compute(11);
-    cr_assert_eq(toto.compute(11), nts::Tristate::TRUE);
+    cr_expect_eq(toto.compute(11), nts::Tristate::TRUE);
 }

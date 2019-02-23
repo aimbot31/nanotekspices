@@ -11,6 +11,7 @@
 	#include <map>
 	#include <memory>
 	#include "AComponent.hpp"
+	#include "Traitement.hpp"
 
     /**
     * \namespace nts
@@ -22,9 +23,9 @@
 		* \class Circuit
 		* \brief Component that can hold multiple Component and Form a Circuit
 		*/
-		class Circuit : public nts::AComponent {
+		class Circuit : public nts::Traitement, public nts::AComponent {
 			public:
-				Circuit(const std::string &name);
+				Circuit(int ac, char **av, const std::string &name);
 				~Circuit();
 
 				/**
@@ -37,15 +38,24 @@
 					INTERN
 				};
 
-				void dump(void) const override;
 				nts::Tristate compute(std::size_t pin = 1);
 
-				void addComponent(std::unique_ptr<nts::IComponent> &newComponent, ComponentType type = ComponentType::INTERN);
+				/**
+				* \brief Compute All output Pin
+				*/
+				void computeAll(void);
+				void displayAll(void);
+				void dumpAll(void);
+
+
+				void setInputValue(std::string &name, nts::Tristate value);
+
+
 
 			protected:
-				std::map<std::string, std::unique_ptr<nts::IComponent>> _Components;
-				void addPin(nts::IComponent *newOutput, ComponentType type) noexcept;
 				static void dumpFromMap(const std::map<std::string, std::unique_ptr<nts::IComponent>>::value_type &elem);
+				void resetExecution(void);
+				static void resetIComponent(std::map<std::string, std::unique_ptr<nts::IComponent>>::value_type &elem);
 		};
 	}
 
