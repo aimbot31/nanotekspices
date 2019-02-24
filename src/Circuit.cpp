@@ -75,7 +75,11 @@ void Circuit::displayAll(void)
 {
 	for (auto it = _Components.begin(); it != _Components.end(); it++) {
 		if (_type.at(it->first) == "output") {
-			std::cout << it->first << "=" <<  it->second->compute() << std::endl;
+			std::cout << it->first << "=";
+			if (it->second->compute() == -1)
+				std::cout << 'U' << std::endl;
+			else
+				std::cout << it->second->compute() << std::endl;
 		}
 	}
 }

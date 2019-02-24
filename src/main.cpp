@@ -9,12 +9,11 @@
 
 int main(int argc, char **argv)
 {
-
 	try {
 		nts::NanoTekSpice nanotekspice(argc, argv);
 		nanotekspice.run();
-	} catch(const std::exception& e) {
-		std::cerr << e.what() << '\n';
+	} catch(const std::exception &e) {
+		std::cerr << e.what() << std::endl;
 		return (84);
 	}
 	return (0);
