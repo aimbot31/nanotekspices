@@ -41,7 +41,7 @@ Test(Chipset4011, computeFirstGate)
     cr_expect_eq(toto.compute(3), nts::Tristate::UNDEFINED);
     toto.setLink(2, a2, 1);
     a1.setInputValue(nts::Tristate::TRUE);
-    a2.setInputValue(nts::Tristate::TRUE);
+    a2.setInputValue(nts::Tristate::FALSE);
     toto.resetExecution();
     cr_expect_eq(toto.compute(3), nts::Tristate::TRUE);
 }
@@ -58,7 +58,7 @@ Test(Chipset4011, computeSecondGate)
     cr_expect_eq(toto.compute(4), nts::Tristate::UNDEFINED);
     toto.setLink(6, a2, 1);
     a1.setInputValue(nts::Tristate::TRUE);
-    a2.setInputValue(nts::Tristate::TRUE);
+    a2.setInputValue(nts::Tristate::FALSE);
     toto.resetExecution();
     cr_expect_eq(toto.compute(4), nts::Tristate::TRUE);
 }
@@ -75,7 +75,7 @@ Test(Chipset4011, computeThirdGate)
     cr_expect_eq(toto.compute(10), nts::Tristate::UNDEFINED);
     toto.setLink(9, a2, 1);
     a1.setInputValue(nts::Tristate::TRUE);
-    a2.setInputValue(nts::Tristate::TRUE);
+    a2.setInputValue(nts::Tristate::FALSE);
     toto.resetExecution();
     toto.compute(10);
     cr_expect_eq(toto.compute(10), nts::Tristate::TRUE);
@@ -93,7 +93,7 @@ Test(Chipset4011, computeFourthGate)
     cr_expect_eq(toto.compute(11), nts::Tristate::UNDEFINED);
     toto.setLink(13, a2, 1);
     a1.setInputValue(nts::Tristate::TRUE);
-    a2.setInputValue(nts::Tristate::TRUE);
+    a2.setInputValue(nts::Tristate::FALSE);
     toto.resetExecution();
     toto.compute(11);
     cr_expect_eq(toto.compute(11), nts::Tristate::TRUE);

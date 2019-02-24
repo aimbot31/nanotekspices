@@ -8,14 +8,14 @@
 #ifndef CHIPSET4001_HPP_
 	#define CHIPSET4001_HPP_
 
-    #include <iostream>
-    #include <functional>
-    #include "AComponent.hpp"
+	#include <iostream>
+	#include <functional>
+	#include "AComponent.hpp"
 
-    /**
-    * \namespace nts
-    * \brief Namespace for Component
-    */
+	/**
+	* \namespace nts
+	* \brief Namespace for Component
+	*/
 	namespace nts {
 
 		/**

@@ -31,7 +31,7 @@
 
 			protected:
 				nts::Tristate operation(std::size_t pin1, std::size_t pin2);
-				static constexpr std::size_t _numberOfPin = 13;
+				static constexpr std::size_t _numberOfPin = 14;
 		};
 	}
 
