@@ -18,6 +18,7 @@
 	#include "chipsets/Chipset4069.hpp"
 	#include "chipsets/Chipset4071.hpp"
 	#include "chipsets/Chipset4081.hpp"
+	#include "Clock.hpp"
 	#include "Input.hpp"
 	#include "Output.hpp"
 	#include "IComponent.hpp"

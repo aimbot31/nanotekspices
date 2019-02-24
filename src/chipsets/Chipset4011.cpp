@@ -31,7 +31,7 @@ nts::AComponent(name, Chipset4011::_numberOfPin)
 */
 nts::Tristate Chipset4011::operation(std::size_t pin1, std::size_t pin2)
 {
-	return nts::Gates::And(_PinLink[pin1](), _PinLink[pin2]());
+	return nts::Gates::Nand(_PinLink[pin1](), _PinLink[pin2]());
 }
 
 /**
@@ -46,7 +46,7 @@ nts::Tristate Chipset4011::compute(std::size_t pin)
 		case 4:     return operation(pin, pin + 1);
 		case 10:    return operation(pin - 3, pin - 2);
 		case 11:    return operation(pin, pin + 1);    
-		default:	throw std::exception(); // Invalid Pin ask
+		default:	throw nts::PinError("4011"); // Invalid Pin ask
 	}
 }
 

@@ -13,11 +13,12 @@
 	#include <map>
 	#include "IComponent.hpp"
 	#include "PinLink.hpp"
+	#include "exceptions/Exceptions.hpp"
 
-    /**
-    * \namespace nts
-    * \brief Namespace for Component
-    */
+	/**
+	* \namespace nts
+	* \brief Namespace for Component
+	*/
 	namespace nts {
 
 		/**

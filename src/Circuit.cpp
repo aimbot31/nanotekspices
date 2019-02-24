@@ -107,7 +107,7 @@ void Circuit::resetExecution(void)
 nts::Tristate Circuit::compute(std::size_t pin)
 {
 	if (pin < 1 || pin > _NbPin)
-		throw std::exception(); // Invalid Pin
+		throw nts::PinError("4008"); // Invalid Pin
 	pin -= 1;
 	return _PinLink[pin]();
 }

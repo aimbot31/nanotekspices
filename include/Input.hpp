@@ -8,33 +8,30 @@
 #ifndef INPUT_HPP_
 	#define INPUT_HPP_
 
-    #include "AComponent.hpp"
+	#include "AComponent.hpp"
 
-    /**
-    * \namespace nts
-    * \brief Namespace for Component
-    */
-    namespace nts {
+	/**
+	* \namespace nts
+	* \brief Namespace for Component
+	*/
+	namespace nts {
 
-        /**
-        * \class Input
-        * \brief Component that represent a default Input
-        */
-        class Input : public nts::AComponent {
-            public:
-                Input(const std::string &name, nts::Tristate state = nts::Tristate::UNDEFINED);
-                ~Input();
+		/**
+		* \class Input
+		* \brief Component that represent a default Input
+		*/
+		class Input : public nts::AComponent {
+			public:
+				Input(const std::string &name, nts::Tristate state = nts::Tristate::UNDEFINED);
+				~Input();
 
-                // Mandatory
-                nts::Tristate compute(std::size_t pin = 1) override;
-
-                // Setters
-                void setInputValue(nts::Tristate defaultValue) noexcept;
-
-            protected:
-            private:
-                nts::Tristate _Value; /*!< Default value to return */
-        };
-    };
+				// Mandatory
+				nts::Tristate compute(std::size_t pin = 1) override;
+				// Setters
+				void setInputValue(nts::Tristate defaultValue) noexcept;
+			protected:
+				nts::Tristate _Value; /*!< Default value to return */
+		};
+	};
 
 #endif /* !INPUT_HPP_ */

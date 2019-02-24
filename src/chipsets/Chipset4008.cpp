@@ -83,7 +83,7 @@ nts::Tristate Chipset4008::compute(std::size_t pin)
 		case 13: return _Output4;
 		case 14: return _Carry;
 		default:
-			throw std::exception();
+			throw nts::PinError("4008");
 	}
 }
 

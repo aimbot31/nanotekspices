@@ -30,6 +30,34 @@
 				InputError(const std::string &msg, const std::string &component = "Unknown");
 				virtual ~InputError() throw() {};
 		};
+
+		class ComponentError : public NtsError
+		{
+			public:
+				ComponentError(const std::string &msg, const std::string &component = "Unknown");
+				virtual ~ComponentError() throw() {};
+		};
+
+		class PinError : public NtsError
+		{
+			public:
+				PinError(const std::string &component = "Unknown");
+				virtual ~PinError() throw() {};
+		};
+
+		class LinkError : public NtsError
+		{
+			public:
+				LinkError(const std::string &msg, const std::string &component = "Unknown");
+				virtual ~LinkError() throw() {};
+		};
+
+		class FileError : public NtsError
+		{
+			public:
+				FileError(const std::string &component = "Unknown");
+				virtual ~FileError() throw() {};
+		};
 	}
 
 #endif /* !EXCEPTIONS_HPP_ */
