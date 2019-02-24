@@ -15,12 +15,15 @@ FILES		=	PinLink.cpp					\
 				Gates.cpp					\
 				Output.cpp					\
 				Circuit.cpp					\
+				Clock.cpp					\
 				factory/factory.cpp			\
 				Traitement.cpp				\
+				chipsets/Chipset4013.cpp	\
 				chipsets/Chipset4001.cpp	\
 				chipsets/Chipset4011.cpp	\
 				chipsets/Chipset4008.cpp	\
 				chipsets/Chipset4030.cpp	\
+				chipsets/Chipset4040.cpp	\
 				chipsets/Chipset4069.cpp	\
 				chipsets/Chipset4071.cpp	\
 				chipsets/Chipset4081.cpp	\
