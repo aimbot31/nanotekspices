@@ -31,7 +31,7 @@ nts::AComponent(name, Chipset4011::_numberOfPin)
 */
 nts::Tristate Chipset4011::operation(std::size_t pin1, std::size_t pin2)
 {
-	return nts::Gates::And(_PinLink[pin1](), _PinLink[pin2]());
+	return nts::Gates::Nand(_PinLink[pin1](), _PinLink[pin2]());
 }
 
 /**
