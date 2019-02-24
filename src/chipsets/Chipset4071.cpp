@@ -46,7 +46,7 @@ nts::Tristate Chipset4071::compute(std::size_t pin)
 		case 4:     return operation(pin, pin + 1);
 		case 10:    return operation(pin - 3, pin - 2);
 		case 11:    return operation(pin, pin + 1);    
-		default:	throw std::exception(); // Invalid Pin ask
+		default:	throw nts::PinError("4071"); // Invalid Pin ask
 	}
 }
 

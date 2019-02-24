@@ -31,12 +31,12 @@ _NbPin(pins)
 void nts::AComponent::setLink(std::size_t pin, nts::IComponent &other, std::size_t otherPin)
 {
 	if (pin < 1 || pin > _NbPin)
-		throw std::exception(); // Invalid Pin
+		throw nts::LinkError("Invalid pin..", "nts::AComponent::setLink"); // Invalid Pin
 	if (otherPin < 1)
-		throw std::exception(); // Invalid other Pin
+		throw nts::LinkError("Invalid other pin..", "nts::AComponent::setLink");
 	pin -= 1;
 	if (_PinLink[pin])
-		throw std::exception(); // Already ask Pin
+		throw nts::LinkError("Pin already set..", "nts::AComponent::setLink");
 	_PinLink[pin] = PinLink(&other, otherPin);
 }
 
