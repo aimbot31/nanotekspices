@@ -6,10 +6,11 @@
 */
 
 #include "Clock.hpp"
+#include "Gates.hpp"
 
 using namespace nts;
 
-Clock::Clock(const std::string &name, nts::Tristate state = nts::Tristate::UNDEFINED) :
+Clock::Clock(const std::string &name, nts::Tristate state) :
 Input(name, state)
 {}
 
