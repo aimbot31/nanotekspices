@@ -30,14 +30,14 @@ _NbPin(pins)
 */
 void nts::AComponent::setLink(std::size_t pin, nts::IComponent &other, std::size_t otherPin)
 {
-    if (pin < 1 || pin > _NbPin)
-        throw std::exception(); // Invalid Pin
-    if (otherPin < 1)
-        throw std::exception(); // Invalid other Pin
-    pin -= 1;
-    if (_PinLink[pin])
-        throw std::exception(); // Already ask Pin
-    _PinLink[pin] = PinLink(&other, otherPin);
+	if (pin < 1 || pin > _NbPin)
+		throw std::exception(); // Invalid Pin
+	if (otherPin < 1)
+		throw std::exception(); // Invalid other Pin
+	pin -= 1;
+	if (_PinLink[pin])
+		throw std::exception(); // Already ask Pin
+	_PinLink[pin] = PinLink(&other, otherPin);
 }
 
 /**
@@ -45,7 +45,7 @@ void nts::AComponent::setLink(std::size_t pin, nts::IComponent &other, std::size
 */
 void nts::AComponent::dump(void) const
 {
-    std::cout << _Name << std::endl;
+	std::cout << _Name << std::endl;
 }
 
 /**
@@ -53,8 +53,8 @@ void nts::AComponent::dump(void) const
 */
 void nts::AComponent::resetExecution(void)
 {
-    for (auto it = _PinLink.begin(); it != _PinLink.end(); it++)
-        it->second.resetExecution();
+	for (auto it = _PinLink.begin(); it != _PinLink.end(); it++)
+		it->second.resetExecution();
 }
 
 /**
@@ -62,5 +62,5 @@ void nts::AComponent::resetExecution(void)
 */
 nts::AComponent::~AComponent()
 {
-    _PinLink.clear();
+	_PinLink.clear();
 }

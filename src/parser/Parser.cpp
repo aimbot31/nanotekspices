@@ -22,7 +22,7 @@ Parser::Parser(int argc, char **argv)
 void Parser::checkValues(std::unordered_map<int, std::map<std::string, std::string>> &component, std::map<std::string, int> &values)
 {
 	for (auto key : values) {
-		if (component[1].count(key.first) == 0 || component[1][key.first] != "input")
+		if (component[1].count(key.first) == 0 || (component[1][key.first] != "input" && component[1][key.first] != "clock"))
 			throw std::exception();
 	}
 }
