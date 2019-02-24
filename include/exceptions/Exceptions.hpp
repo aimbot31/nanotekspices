@@ -41,7 +41,7 @@
 		class PinError : public NtsError
 		{
 			public:
-				PinError(const std::string &msg, const std::string &component = "Unknown");
+				PinError(const std::string &component = "Unknown");
 				virtual ~PinError() throw() {};
 		};
 
@@ -55,7 +55,7 @@
 		class FileError : public NtsError
 		{
 			public:
-				FileError(const std::string &msg, const std::string &component = "Unknown");
+				FileError(const std::string &component = "Unknown");
 				virtual ~FileError() throw() {};
 		};
 	}

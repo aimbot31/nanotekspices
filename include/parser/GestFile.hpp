@@ -15,6 +15,7 @@
 	#include <regex>
 	#include <map>
 	#include <unordered_map>
+	#include "exceptions/Exceptions.hpp"
 
 	class GestFile {
 		public:

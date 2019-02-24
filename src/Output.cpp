@@ -30,10 +30,10 @@ nts::AComponent(name)
 nts::Tristate Output::compute(std::size_t pin)
 {
 	if (pin < 1 || pin > _NbPin)
-		throw std::exception(); // Invalid Pin
+		throw nts::PinLinkError("Invalid pin selected..", "compute"); // Invalid Pin
 	pin--;
 	if (!_PinLink[pin])
-		throw std::exception();// Link Not Set
+		throw nts::PinLinkError("Invalid pin selected..", "compute"); // Link Not Set
 	nts::Tristate rValue = _PinLink[pin]();
 	return rValue;
 }

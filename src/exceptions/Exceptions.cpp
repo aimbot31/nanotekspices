@@ -33,9 +33,9 @@ nts::ComponentError::ComponentError(const std::string &msg, const std::string &c
 	_component = component;
 }
 
-nts::PinError::PinError(const std::string &msg, const std::string &component)
+nts::PinError::PinError(const std::string &component)
 {
-	_msg = "Pin error : " + msg;
+	_msg = "Pin error : pin doesn't exists..";
 	_component = component;
 }
 
@@ -45,8 +45,8 @@ nts::LinkError::LinkError(const std::string &msg, const std::string &component)
 	_component = component;
 }
 
-nts::FileError::FileError(const std::string &msg, const std::string &component)
+nts::FileError::FileError(const std::string &component)
 {
-	_msg = "File error : " + msg;
+	_msg = "File error : Bad format..";
 	_component = component;
 }
