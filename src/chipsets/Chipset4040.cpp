@@ -47,7 +47,7 @@ nts::Tristate Chipset4040::compute(std::size_t pin)
 		case 2:     return ((_Count & 2) == 2) ? nts::Tristate::TRUE : nts::Tristate::FALSE;
 		case 13:    return ((_Count & 4) == 4) ? nts::Tristate::TRUE : nts::Tristate::FALSE;
 		case 12:    return ((_Count & 8) == 8) ? nts::Tristate::TRUE : nts::Tristate::FALSE;
-		default:	throw std::exception(); // Invalid Pin ask
+		default:	throw nts::PinError("4040"); // Invalid Pin ask
 	}
 
 }

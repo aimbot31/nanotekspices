@@ -67,7 +67,7 @@ nts::Tristate Chipset4013::compute(std::size_t pin)
 		case 2:     return nts::Gates::Not(operation1());
 		case 13:    return operation2();
 		case 12:    return nts::Gates::Not(operation2());
-		default:	throw std::exception(); // Invalid Pin ask
+		default:	throw nts::PinError("4013"); // Invalid Pin ask
 	}
 }
 
